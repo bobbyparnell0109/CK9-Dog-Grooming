@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CK9 Dog Grooming – King's Lynn, Norfolk</title>
+  <meta name="description" content="Professional dog grooming in King's Lynn, Norfolk. Cathy has been grooming dogs since 1993. Book your appointment online today.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── RESET & TOKENS ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:        #FAF7F2;
+      --white:        #FFFFFF;
+      --teal:         #5AADA0;
+      --teal-dk:      #38887A;
+      --teal-dkr:     #285F54;
+      --teal-lt:      #EDF7F5;
+      --teal-xlt:     #F4FAF9;
+      --blush:        #DDA9AC;
+      --blush-lt:     #F9EDEE;
+      --gold:         #F4B942;
+      --text:         #1E302C;
+      --text-mid:     #3D5249;
+      --text-lt:      #7A9087;
+      --border:       #DDD5C8;
+      --shadow:       0 4px 24px rgba(30,48,44,.08);
+      --shadow-lg:    0 8px 48px rgba(30,48,44,.13);
+      --r:            12px;
+      --r-sm:         8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      line-height: 1.72;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; }
+    a   { text-decoration: none; color: inherit; }
+
+    /* ── TYPOGRAPHY ─────────────────────────────────────────────── */
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.22; }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: .5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 4.5vw, 2.8rem);
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      max-width: 600px;
+    }
+
+    /* ── LAYOUT ─────────────────────────────────────────────────── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+    section    { padding: 5rem 0; }
+
+    /* ── BUTTONS ─────────────────────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      padding: .875rem 2rem;
+      border-radius: 50px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: all .22s ease;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .btn-primary { background: var(--teal); color: var(--white); }
+    .btn-primary:hover {
+      background: var(--teal-dk);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(90,173,160,.4);
+    }
+
+    .btn-white { background: var(--white); color: var(--teal-dkr); }
+    .btn-white:hover {
+      background: var(--cream);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(0,0,0,.12);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,.14);
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,.45);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,.25); }
+
+    /* ── NAV ─────────────────────────────────────────────────────── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: .9rem 1.25rem;
+      transition: background .3s, box-shadow .3s;
+    }
+
+    #nav.scrolled {
+      background: rgba(255,255,255,.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(30,48,44,.07);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      transition: color .3s;
+      white-space: nowrap;
+    }
+    #nav.scrolled .nav-logo { color: var(--text); }
+
+    .nav-links {
+      display: none;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: .88rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      color: rgba(255,255,255,.88);
+      transition: color .2s;
+    }
+    #nav.scrolled .nav-links a { color: var(--text-mid); }
+    .nav-links a:hover { color: var(--teal) !important; }
+
+    .nav-book {
+      font-size: .88rem;
+      padding: .58rem 1.35rem;
+      background: rgba(255,255,255,.18);
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,.45);
+      border-radius: 50px;
+      font-weight: 700;
+      transition: all .22s;
+    }
+    .nav-book:hover { background: rgba(255,255,255,.32); }
+    #nav.scrolled .nav-book {
+      background: var(--teal);
+      border-color: var(--teal);
+    }
+    #nav.scrolled .nav-book:hover { background: var(--teal-dk); border-color: var(--teal-dk); }
+
+    @media (min-width: 768px) { .nav-links { display: flex; } }
+
+    /* ── HERO ────────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100svh;
+      background: linear-gradient(148deg, var(--teal-dkr) 0%, var(--teal-dk) 50%, var(--teal) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      padding: 7rem 1.25rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative paw shapes – pure CSS, very subtle */
+    .hero::before, .hero::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,.04);
+      pointer-events: none;
+    }
+    .hero::before { width: 500px; height: 500px; top: -120px; right: -100px; }
+    .hero::after  { width: 350px; height: 350px; bottom: 60px; left: -80px; }
+
+    .hero-paw-bg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .hero-paw-bg svg {
+      width: min(55vw, 420px);
+      opacity: .04;
+    }
+
+    .hero-pill {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 50px;
+      padding: .35rem 1rem;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 9vw, 5.6rem);
+      margin-bottom: .4rem;
+      text-shadow: 0 2px 24px rgba(0,0,0,.18);
+    }
+
+    .hero-tagline {
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      font-weight: 300;
+      opacity: .88;
+      letter-spacing: .025em;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: clamp(1.35rem, 4.5vw, 1.75rem);
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      background: rgba(255,255,255,.13);
+      padding: .7rem 1.6rem;
+      border-radius: 50px;
+      border: 1.5px solid rgba(255,255,255,.24);
+      transition: background .22s;
+    }
+    .hero-phone:hover { background: rgba(255,255,255,.22); }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+
+    .hero-wave {
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      pointer-events: none;
+    }
+
+    /* ── ABOUT ───────────────────────────────────────────────────── */
+    .about { background: var(--cream); }
+
+    .about-grid {
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .about-grid { grid-template-columns: 1fr 1.15fr; }
+    }
+
+    .about-visual { display: flex; justify-content: center; }
+
+    .about-card {
+      background: var(--white);
+      border-radius: var(--r);
+      padding: 2.25rem 2rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      max-width: 280px;
+      width: 100%;
+    }
+
+    .about-card-paw {
+      font-size: 3rem;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--teal);
+      display: block;
+      line-height: 1;
+      margin-bottom: .2rem;
+    }
+    .stat-label {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-lt);
+    }
+    .stat-rule {
+      width: 36px; height: 2px;
+      background: var(--border);
+      margin: 1.2rem auto;
+      border-radius: 2px;
+    }
+
+    .about-text p { color: var(--text-mid); margin-bottom: 1rem; }
+    .about-text p:last-of-type { margin-bottom: 0; }
+
+    .about-divider {
+      width: 40px; height: 3px;
+      background: var(--teal);
+      margin-bottom: 1.5rem;
+      border-radius: 2px;
+    }
+
+    .badge-row { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.6rem; }
+
+    .badge {
+      display: inline-block;
+      padding: .32rem .8rem;
+      border-radius: 50px;
+      font-size: .78rem;
+      font-weight: 700;
+    }
+    .badge-teal  { background: var(--teal-lt);  color: var(--teal-dk); }
+    .badge-blush { background: var(--blush-lt); color: #8C5558; }
+
+    /* ── SERVICES ────────────────────────────────────────────────── */
+    .services { background: var(--white); }
+
+    .services-head { text-align: center; margin-bottom: 2.75rem; }
+    .services-head .lead { margin: 0 auto; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .s-card {
+      background: var(--cream);
+      border-radius: var(--r);
+      padding: 1.7rem;
+      border: 1.5px solid transparent;
+      transition: all .22s ease;
+    }
+    .s-card:hover {
+      border-color: var(--teal);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .s-icon { font-size: 2.4rem; display: block; margin-bottom: .9rem; }
+    .s-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      margin-bottom: .35rem;
+    }
+    .s-desc { font-size: .85rem; color: var(--text-lt); line-height: 1.6; margin-bottom: .9rem; }
+    .s-price { font-size: 1.25rem; font-weight: 700; color: var(--teal-dk); }
+    .s-price small { font-size: .73rem; font-weight: 400; color: var(--text-lt); }
+
+    .addons-box {
+      background: var(--teal-xlt);
+      border: 1px solid rgba(90,173,160,.18);
+      border-radius: var(--r);
+      padding: 1.6rem 1.75rem;
+    }
+    .addons-box h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .addons-pills { display: flex; flex-wrap: wrap; gap: .55rem; }
+    .addons-pills li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      background: var(--white);
+      padding: .45rem .9rem;
+      border-radius: 50px;
+      font-size: .85rem;
+      color: var(--text-mid);
+      border: 1px solid rgba(90,173,160,.2);
+    }
+
+    .size-note {
+      text-align: center;
+      font-size: .78rem;
+      color: var(--text-lt);
+      margin-top: 1.1rem;
+    }
+
+    /* ── BOOKING ─────────────────────────────────────────────────── */
+    .booking {
+      background: linear-gradient(180deg, var(--teal-xlt) 0%, var(--white) 100%);
+    }
+    .booking-head { text-align: center; margin-bottom: 2.25rem; }
+    .booking-head .lead { margin: 0 auto; }
+
+    .form-card {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: var(--r);
+      box-shadow: var(--shadow-lg);
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .form-grid { display: grid; gap: 1.1rem; }
+    @media (min-width: 560px) {
+      .form-grid { grid-template-columns: 1fr 1fr; }
+      .form-span { grid-column: 1 / -1; }
+    }
+
+    .fg { display: flex; flex-direction: column; gap: .38rem; }
+
+    .fg label {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--text-mid);
+      letter-spacing: .02em;
+    }
+    .fg label .req { color: var(--teal); margin-left: 2px; }
+
+    .fg input,
+    .fg select,
+    .fg textarea {
+      width: 100%;
+      padding: .72rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-sm);
+      font-family: 'Lato', sans-serif;
+      font-size: .97rem;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color .2s, box-shadow .2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .fg select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A9087' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right .9rem center;
+      padding-right: 2.4rem;
+    }
+    .fg input:focus,
+    .fg select:focus,
+    .fg textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(90,173,160,.12);
+    }
+    .fg textarea { resize: vertical; min-height: 96px; }
+
+    .form-foot { margin-top: .5rem; text-align: center; }
+    .form-foot .btn { width: 100%; font-size: 1.05rem; padding: 1rem 2rem; }
+    @media (min-width: 480px) { .form-foot .btn { width: auto; min-width: 230px; } }
+
+    .form-privacy {
+      font-size: .73rem;
+      color: var(--text-lt);
+      margin-top: .7rem;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+    .form-success .icon { font-size: 3.2rem; margin-bottom: 1rem; }
+    .form-success h3 { font-size: 1.5rem; color: var(--teal-dk); margin-bottom: .6rem; }
+    .form-success p  { color: var(--text-mid); line-height: 1.7; }
+    .form-success a  { color: var(--teal); font-weight: 700; }
+
+    /* ── TESTIMONIALS ────────────────────────────────────────────── */
+    .testimonials { background: var(--cream); }
+    .testimonials-head { text-align: center; margin-bottom: 2.75rem; }
+
+    .t-grid {
+      display: grid;
+      gap: 1.4rem;
+    }
+    @media (min-width: 640px)  { .t-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1000px) { .t-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+    .t-card {
+      background: var(--white);
+      border-radius: var(--r);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    .t-card::before {
+      content: '\201C';
+      position: absolute;
+      top: .8rem; left: 1.4rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 4.5rem;
+      color: var(--teal-lt);
+      line-height: 1;
+    }
+
+    .t-stars { display: flex; gap: .1rem; margin-bottom: .9rem; padding-top: .35rem; }
+    .t-stars span { color: var(--gold); font-size: 1rem; }
+
+    .t-text {
+      font-style: italic;
+      color: var(--text-mid);
+      line-height: 1.72;
+      font-size: .96rem;
+    }
+    .t-author {
+      margin-top: 1.1rem;
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--teal-dk);
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────────────── */
+    footer {
+      background: var(--teal-dkr);
+      color: rgba(255,255,255,.82);
+      padding: 3.25rem 0 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 2rem;
+    }
+    @media (min-width: 640px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; } }
+
+    .footer-brand .f-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      margin-bottom: .75rem;
+    }
+
+    .footer-brand p {
+      font-size: .84rem;
+      color: rgba(255,255,255,.5);
+      line-height: 1.65;
+    }
+
+    .footer-col h5 {
+      font-family: 'Lato', sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: .9rem;
+    }
+    .footer-col p, .footer-col a {
+      display: block;
+      font-size: .84rem;
+      color: rgba(255,255,255,.7);
+      line-height: 1.8;
+      transition: color .2s;
+    }
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      margin-top: 2.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,.1);
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      justify-content: space-between;
+    }
+    .footer-bottom p { font-size: .72rem; color: rgba(255,255,255,.3); }
+
+    /* ── PAW ICON SVG ────────────────────────────────────────────── */
+    .paw-svg { display: inline-block; vertical-align: middle; }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVIGATION ═══════════════════════════════════════════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">
+      <svg class="paw-svg" width="22" height="22" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
+        <ellipse cx="50" cy="67" rx="24" ry="21"/>
+        <circle cx="20" cy="42" r="11"/>
+        <circle cx="39" cy="32" r="11"/>
+        <circle cx="61" cy="32" r="11"/>
+        <circle cx="80" cy="42" r="11"/>
+      </svg>
+      CK9 Dog Grooming
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+    </ul>
+    <a href="#booking" class="nav-book">Book a Groom</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══════════════════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-paw-bg" aria-hidden="true">
+    <svg viewBox="0 0 100 100" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="50" cy="67" rx="24" ry="21"/>
+      <circle cx="20" cy="42" r="11"/>
+      <circle cx="39" cy="32" r="11"/>
+      <circle cx="61" cy="32" r="11"/>
+      <circle cx="80" cy="42" r="11"/>
+    </svg>
+  </div>
+
+  <span class="hero-pill">King's Lynn, Norfolk</span>
+  <h1>CK9 Dog Grooming</h1>
+  <p class="hero-tagline">Professional Dog Grooming Since 1993</p>
+
+  <a href="tel:+447802737996" class="hero-phone">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 10.93a19.79 19.79 0 01-3.07-8.67A2 2 0 011.91 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    +44 7802 737996
+  </a>
+
+  <div class="hero-actions">
+    <a href="#booking" class="btn btn-white">Book a Groom</a>
+    <a href="#services" class="btn btn-ghost">View Services</a>
+  </div>
+
+  <svg class="hero-wave" viewBox="0 0 1440 64" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0,64 C240,20 600,0 900,28 C1140,50 1320,32 1440,16 L1440,64 Z" fill="#FAF7F2"/>
+  </svg>
+</section>
+
+<!-- ══ ABOUT ══════════════════════════════════════════════════════════ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-visual">
+        <div class="about-card">
+          <span class="about-card-paw" aria-hidden="true">
+            <svg width="52" height="52" viewBox="0 0 100 100" fill="#5AADA0" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="50" cy="67" rx="24" ry="21"/>
+              <circle cx="20" cy="42" r="11"/>
+              <circle cx="39" cy="32" r="11"/>
+              <circle cx="61" cy="32" r="11"/>
+              <circle cx="80" cy="42" r="11"/>
+            </svg>
+          </span>
+          <span class="stat-num">1993</span>
+          <span class="stat-label">Grooming Started</span>
+          <div class="stat-rule"></div>
+          <span class="stat-num">2001</span>
+          <span class="stat-label">CK9 Opened</span>
+          <div class="stat-rule"></div>
+          <span class="stat-num" style="font-size:1.05rem; letter-spacing:-.01em;">City &amp; Guilds</span>
+          <span class="stat-label">Qualified</span>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <span class="eyebrow">About Cathy</span>
+        <h2 class="section-title">A Lifetime of Loving Dogs</h2>
+        <div class="about-divider"></div>
+        <p>
+          Cathy has been grooming dogs since 1993 — not just as a career, but as a true calling.
+          From the very start she had a gift for making even the most nervous or anxious dogs feel
+          calm, safe, and entirely at ease.
+        </p>
+        <p>
+          She opened CK9 Dog Grooming in 2001 right here in King's Lynn, and over two decades later
+          the ethos hasn't changed one bit. City &amp; Guilds qualified and a competitor at national
+          grooming competitions, Cathy brings professional expertise and genuine warmth to every single
+          appointment.
+        </p>
+        <p>
+          Whether it's a first puppy trim or a weekly pamper, every dog that walks through our door
+          is treated exactly as Cathy would treat her own.
+        </p>
+        <div class="badge-row">
+          <span class="badge badge-teal">🏆 National Competition Competitor</span>
+          <span class="badge badge-teal">✓ City &amp; Guilds Qualified</span>
+          <span class="badge badge-blush">❤️ Grooming Since 1993</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES ═══════════════════════════════════════════════════════ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-head">
+      <span class="eyebrow">What We Offer</span>
+      <h2 class="section-title">Our Services</h2>
+      <p class="lead">Every groom is tailored to your dog's coat, breed, and temperament. Prices vary by size — please mention your dog's breed when booking for an accurate quote.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="s-card">
+        <span class="s-icon">✂️</span>
+        <h3 class="s-name">Full Groom</h3>
+        <p class="s-desc">Bath, blow dry, breed-appropriate cut, and finishing touches. Your dog leaves looking and smelling their absolute best.</p>
+        <div class="s-price">from £45 <small>/ varies by size</small></div>
+      </div>
+
+      <div class="s-card">
+        <span class="s-icon">🛁</span>
+        <h3 class="s-name">Bath &amp; Brush</h3>
+        <p class="s-desc">Thorough shampoo, conditioning treatment, blow dry, and brush-out. Perfect between full grooms to keep coats fresh.</p>
+        <div class="s-price">from £30 <small>/ varies by size</small></div>
+      </div>
+
+      <div class="s-card">
+        <span class="s-icon">🐶</span>
+        <h3 class="s-name">Puppy First Groom</h3>
+        <p class="s-desc">A gentle, positive introduction to the grooming experience — designed to build happy associations from the very first visit.</p>
+        <div class="s-price">from £25 <small>/ all sizes</small></div>
+      </div>
+
+      <div class="s-card">
+        <span class="s-icon">💅</span>
+        <h3 class="s-name">Nail Clip</h3>
+        <p class="s-desc">Quick, calm nail trimming. Can be added to any service or booked as a quick standalone appointment.</p>
+        <div class="s-price">from £10 <small>/ all sizes</small></div>
+      </div>
+    </div>
+
+    <div class="addons-box">
+      <h4>✨ Optional Add-On Treatments</h4>
+      <ul class="addons-pills">
+        <li>🦷 Teeth Cleaning</li>
+        <li>🧴 De-Shedding Treatment</li>
+      </ul>
+      <p class="size-note" style="text-align:left; margin-top:.9rem;">Ask Cathy about add-on pricing when you book — she'll be happy to advise.</p>
+    </div>
+
+    <p class="size-note">* Prices depend on breed, coat condition, and size. A quote will be confirmed when Cathy calls to arrange your appointment.</p>
+  </div>
+</section>
+
+<!-- ══ BOOKING ════════════════════════════════════════════════════════ -->
+<section class="booking" id="booking">
+  <div class="container">
+    <div class="booking-head">
+      <span class="eyebrow">Make an Appointment</span>
+      <h2 class="section-title">Book a Groom</h2>
+      <p class="lead">
+        Fill in the form and Cathy will confirm your appointment by phone within 24 hours. Prefer to call?
+        <a href="tel:+447802737996" style="color:var(--teal); font-weight:700;">+44 7802 737996</a>
+      </p>
+    </div>
+
+    <div class="form-card">
+      <form id="bookingForm" action="https://formspree.io/f/PLACEHOLDER_FORM_ID" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New Grooming Booking Request – CK9 Dog Grooming">
+        <input type="text"   name="_gotcha"  style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-grid">
+          <!-- Owner details -->
+          <div class="fg">
+            <label for="owner_name">Your Name <span class="req">*</span></label>
+            <input type="text" id="owner_name" name="owner_name" required placeholder="e.g. Jane Smith" autocomplete="name">
+          </div>
+          <div class="fg">
+            <label for="phone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" required placeholder="e.g. 07700 900000" autocomplete="tel">
+          </div>
+          <div class="fg form-span">
+            <label for="email">Email Address <span class="req">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="e.g. jane@example.com" autocomplete="email">
+          </div>
+
+          <!-- Dog details -->
+          <div class="fg">
+            <label for="dog_name">Dog's Name <span class="req">*</span></label>
+            <input type="text" id="dog_name" name="dog_name" required placeholder="e.g. Biscuit">
+          </div>
+          <div class="fg">
+            <label for="breed">Breed <span class="req">*</span></label>
+            <input type="text" id="breed" name="breed" required placeholder="e.g. Cockapoo">
+          </div>
+          <div class="fg">
+            <label for="size">Dog's Size <span class="req">*</span></label>
+            <select id="size" name="size" required>
+              <option value="" disabled selected>Select size…</option>
+              <option>Small (under 10 kg)</option>
+              <option>Medium (10–25 kg)</option>
+              <option>Large (over 25 kg)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="service">Service Required <span class="req">*</span></label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select service…</option>
+              <option>Full Groom (from £45)</option>
+              <option>Bath &amp; Brush (from £30)</option>
+              <option>Puppy First Groom (from £25)</option>
+              <option>Nail Clip (from £10)</option>
+              <option>Full Groom + Teeth Cleaning</option>
+              <option>Full Groom + De-Shedding Treatment</option>
+              <option>Not sure — please advise</option>
+            </select>
+          </div>
+
+          <!-- Appointment preferences -->
+          <div class="fg">
+            <label for="preferred_date">Preferred Date <span class="req">*</span></label>
+            <input type="date" id="preferred_date" name="preferred_date" required>
+          </div>
+          <div class="fg">
+            <label for="preferred_time">Preferred Time <span class="req">*</span></label>
+            <select id="preferred_time" name="preferred_time" required>
+              <option value="" disabled selected>Select time…</option>
+              <option>Morning (9:00–12:00)</option>
+              <option>Afternoon (12:00–15:00)</option>
+              <option>Late Afternoon (15:00–17:00)</option>
+              <option>Flexible — any time suits</option>
+            </select>
+          </div>
+
+          <!-- Notes -->
+          <div class="fg form-span">
+            <label for="notes">Anything we should know about your dog?</label>
+            <textarea id="notes" name="notes" placeholder="e.g. nervous around strangers, elderly, reactive to other dogs, skin conditions, date of last groom…"></textarea>
+          </div>
+        </div>
+
+        <div class="form-foot">
+          <button type="submit" class="btn btn-primary" id="submitBtn">Request Appointment →</button>
+          <p class="form-privacy">Your details are only used to arrange your appointment and won't be shared.</p>
+        </div>
+      </form>
+
+      <div class="form-success" id="formSuccess" role="alert">
+        <div class="icon" aria-hidden="true">
+          <svg width="56" height="56" viewBox="0 0 100 100" fill="#5AADA0" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="50" cy="67" rx="24" ry="21"/>
+            <circle cx="20" cy="42" r="11"/>
+            <circle cx="39" cy="32" r="11"/>
+            <circle cx="61" cy="32" r="11"/>
+            <circle cx="80" cy="42" r="11"/>
+          </svg>
+        </div>
+        <h3>Thanks — we've got your request!</h3>
+        <p>
+          Cathy will confirm your appointment by phone within 24 hours.<br>
+          If you need to reach her sooner, call
+          <a href="tel:+447802737996">+44 7802 737996</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ═══════════════════════════════════════════════════ -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="testimonials-head">
+      <span class="eyebrow">Happy Clients</span>
+      <h2 class="section-title">What Our Clients Say</h2>
+    </div>
+
+    <div class="t-grid">
+      <div class="t-card">
+        <div class="t-stars" aria-label="5 stars">
+          <span aria-hidden="true">★★★★★</span>
+        </div>
+        <p class="t-text">"My two went for their first groom here and came out so happy and smart. Well looked after, thank you. We'll be back."</p>
+        <p class="t-author">— Verified Client</p>
+      </div>
+
+      <div class="t-card">
+        <div class="t-stars" aria-label="5 stars">
+          <span aria-hidden="true">★★★★★</span>
+        </div>
+        <p class="t-text">"Not just a place for haircuts — a place they feel safe and loved. The staff give each dog individual attention and support."</p>
+        <p class="t-author">— Verified Client</p>
+      </div>
+
+      <div class="t-card">
+        <div class="t-stars" aria-label="5 stars">
+          <span aria-hidden="true">★★★★★</span>
+        </div>
+        <p class="t-text">"Having been recommended by a lovely couple, I just had to take mine. After two hours of pampering, she came out looking absolutely stunning."</p>
+        <p class="t-author">— Verified Client</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ═════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="f-logo">
+          <svg width="22" height="22" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
+            <ellipse cx="50" cy="67" rx="24" ry="21"/>
+            <circle cx="20" cy="42" r="11"/>
+            <circle cx="39" cy="32" r="11"/>
+            <circle cx="61" cy="32" r="11"/>
+            <circle cx="80" cy="42" r="11"/>
+          </svg>
+          CK9 Dog Grooming
+        </div>
+        <p>Professional dog grooming in King's Lynn, Norfolk.<br>By appointment only.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Find Us</h5>
+        <p>7 Austin Fields</p>
+        <p>King's Lynn</p>
+        <p>Norfolk</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Get in Touch</h5>
+        <a href="tel:+447802737996">+44 7802 737996</a>
+        <a href="#booking" style="margin-top:.5rem;">Book Online →</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 CK9 Dog Grooming. All rights reserved.</p>
+      <p>Grooming with love since 1993</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Nav scroll behaviour ──────────────────────────────────────────
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ── Date picker: minimum = tomorrow ──────────────────────────────
+  const dateInput = document.getElementById('preferred_date');
+  const tomorrow  = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  dateInput.min = tomorrow.toISOString().split('T')[0];
+
+  // ── Booking form submission ───────────────────────────────────────
+  const form    = document.getElementById('bookingForm');
+  const success = document.getElementById('formSuccess');
+  const btn     = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    btn.textContent = 'Sending…';
+    btn.disabled    = true;
+
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch(form.action, {
+        method:  'POST',
+        body:    data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        // Save to localStorage so admin page can display it on this device
+        const booking = {
+          id:             Date.now(),
+          submitted:      new Date().toISOString(),
+          owner_name:     data.get('owner_name'),
+          phone:          data.get('phone'),
+          email:          data.get('email'),
+          dog_name:       data.get('dog_name'),
+          breed:          data.get('breed'),
+          size:           data.get('size'),
+          service:        data.get('service'),
+          preferred_date: data.get('preferred_date'),
+          preferred_time: data.get('preferred_time'),
+          notes:          data.get('notes')
+        };
+        try {
+          const existing = JSON.parse(localStorage.getItem('ck9_bookings') || '[]');
+          existing.unshift(booking);
+          localStorage.setItem('ck9_bookings', JSON.stringify(existing));
+        } catch (_) { /* localStorage not available */ }
+
+        form.style.display    = 'none';
+        success.style.display = 'block';
+      } else {
+        throw new Error('Server error');
+      }
+    } catch (_) {
+      btn.textContent = 'Request Appointment →';
+      btn.disabled    = false;
+      alert('Sorry, something went wrong. Please call Cathy directly on +44 7802 737996.');
+    }
+  });
+</script>
+
+</body>
+</html>
